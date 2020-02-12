@@ -1,0 +1,21 @@
+wc=(0.2*pi);
+l=50;
+n=-1:1;
+h=(sin(wc*n)/(pi*n));
+h(l+l)=wc/pi;
+H=dtft(h,'r');
+n=-1000:1000;
+w1=(0.1*pi);
+w2=(0.3*pi);
+x1=sin(w1*n);
+x2=sin(w2*n);
+x=x1+x2;
+y=conv(h,x);
+X=dtft(x,'b');
+Y=dtft(y,'g');
+figure 
+plot(x,'b');
+hold on
+plot(x1,'c');
+plot(x2,'m');
+plot(y,'g');
